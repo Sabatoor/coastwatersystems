@@ -12,6 +12,7 @@ import {
 import Autoplay from 'embla-carousel-autoplay'
 import { Card, CardContent } from '@/components/ui/card'
 import { PrismicNextImage } from '@prismicio/next'
+import { cn } from '@/lib/utils'
 /**
  * Props for `Carousel`.
  */
@@ -39,7 +40,7 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
           opts={{ loop: true }}
           plugins={[
             Autoplay({
-              delay: 4000,
+              delay: slice.variation === 'default' ? 4000 : 6000,
             }),
           ]}
           className="w-full max-w-[240px] md:max-w-screen-sm lg:max-w-screen-md"
@@ -51,15 +52,33 @@ const Carousel = ({ slice }: CarouselProps): JSX.Element => {
                   return (
                     <CarouselItem
                       key={slice.id + index}
-                      className="md:basis-1/3 lg:basis-1/4"
+                      className={cn({
+                        'md:basis-1/3 lg:basis-1/4':
+                          slice.variation === 'default',
+                      })}
                     >
                       <div className="p-1">
                         <Card>
-                          <CardContent className="aspect-square flex flex-col items-center justify-center p-6 relative">
+                          <CardContent
+                            className={cn(
+                              'flex flex-col items-center justify-center p-6 relative rounded-lg',
+                              {
+                                'bg-primary/20 backdrop-blur':
+                                  slice.variation === 'portraitSingle',
+                                'aspect-square': slice.variation === 'default',
+                              }
+                            )}
+                          >
                             <PrismicNextImage
                               field={item.image}
-                              imgixParams={{ ar: '1:1', fit: 'crop' }}
-                              fill
+                              imgixParams={{
+                                ar:
+                                  slice.variation === 'portraitSingle'
+                                    ? '1:1.29'
+                                    : '1:1',
+                                fit: 'crop',
+                              }}
+                              fill={slice.variation === 'default'}
                               className="object-cover rounded-lg"
                             />
                           </CardContent>

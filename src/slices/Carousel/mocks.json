@@ -166,5 +166,49 @@
 				]
 			}
 		]
+	},
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "portraitSingle",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Portrait Single Variation"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"origin": {
+								"id": "5cFwQ-WMcJU",
+								"url": "https://images.unsplash.com/photo-1532153975070-2e9ab71f1b14?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8ZG9jdW1lbnR8ZW58MHx8fHwxNzEyOTMwMDgxfDA&ixlib=rb-4.0.3&q=85",
+								"width": 7952,
+								"height": 5304
+							},
+							"url": "https://images.unsplash.com/photo-1532153975070-2e9ab71f1b14?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMzc0NjN8MHwxfHNlYXJjaHwxMHx8ZG9jdW1lbnR8ZW58MHx8fHwxNzEyOTMwMDgxfDA&ixlib=rb-4.0.3&q=85",
+							"width": 7952,
+							"height": 5304,
+							"edit": {
+								"background": "transparent",
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 0
+								}
+							},
+							"credits": null,
+							"alt": "white printer paper lot",
+							"__TYPE__": "ImageContent",
+							"thumbnails": {}
+						}
+					]
+				]
+			}
+		]
 	}
 ]

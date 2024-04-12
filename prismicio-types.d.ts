@@ -5,10 +5,12 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type FooterMultiColumnDocumentDataSlicesSlice =
+  | FooterImageSlice
   | FooterRichTextSlice
   | FooterLinkBlockSlice;
 
 type FooterMultiColumnDocumentDataSlices1Slice =
+  | FooterRichTextSlice
   | FooterImageSlice
   | FooterLinkBlockSlice;
 
@@ -633,9 +635,54 @@ export type CarouselSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Carousel → Primary*
+ */
+export interface CarouselSlicePortraitSinglePrimary {
+  /**
+   * Title field in *Carousel → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Carousel → Items*
+ */
+export interface CarouselSlicePortraitSingleItem {
+  /**
+   * Image field in *Carousel → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: carousel.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * PortraitSingle variation for Carousel Slice
+ *
+ * - **API ID**: `portraitSingle`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CarouselSlicePortraitSingle = prismic.SharedSliceVariation<
+  "portraitSingle",
+  Simplify<CarouselSlicePortraitSinglePrimary>,
+  Simplify<CarouselSlicePortraitSingleItem>
+>;
+
+/**
  * Slice variation for *Carousel*
  */
-type CarouselSliceVariation = CarouselSliceDefault;
+type CarouselSliceVariation =
+  | CarouselSliceDefault
+  | CarouselSlicePortraitSingle;
 
 /**
  * Carousel Shared Slice
@@ -2108,8 +2155,11 @@ declare module "@prismicio/client" {
       CarouselSlice,
       CarouselSliceDefaultPrimary,
       CarouselSliceDefaultItem,
+      CarouselSlicePortraitSinglePrimary,
+      CarouselSlicePortraitSingleItem,
       CarouselSliceVariation,
       CarouselSliceDefault,
+      CarouselSlicePortraitSingle,
       ContentIndexSlice,
       ContentIndexSliceDefaultPrimary,
       ContentIndexSliceVariation,

@@ -17,6 +17,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "footer_image": {
+              "type": "SharedSlice"
+            },
             "footer_rich_text": {
               "type": "SharedSlice"
             },
@@ -33,6 +36,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "footer_rich_text": {
+              "type": "SharedSlice"
+            },
             "footer_image": {
               "type": "SharedSlice"
             },

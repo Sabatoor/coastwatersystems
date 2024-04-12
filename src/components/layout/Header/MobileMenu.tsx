@@ -37,9 +37,9 @@ const MobileMenu = ({
         <SheetContent>
           <SheetHeader>
             {isFilled.keyText(site_title) && (
-              <SheetTitle className="font-bold font-heading text-primary text-4xl flex flex-col items-center">
+              <SheetTitle className="font-bold font-heading text-primary text-3xl flex flex-col items-center">
                 {isFilled.image(logo) && (
-                  <PrismicNextImage field={logo} className="inline w-12 h-12" />
+                  <PrismicNextImage field={logo} className="" height={50} />
                 )}
                 {site_title}
               </SheetTitle>
