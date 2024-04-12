@@ -4,11 +4,17 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type FooterMultiColumnDocumentDataSlicesSlice = FooterLinkBlockSlice;
+type FooterMultiColumnDocumentDataSlicesSlice =
+  | FooterRichTextSlice
+  | FooterLinkBlockSlice;
 
-type FooterMultiColumnDocumentDataSlices1Slice = FooterLinkBlockSlice;
+type FooterMultiColumnDocumentDataSlices1Slice =
+  | FooterImageSlice
+  | FooterLinkBlockSlice;
 
-type FooterMultiColumnDocumentDataSlices2Slice = FooterLinkBlockSlice;
+type FooterMultiColumnDocumentDataSlices2Slice =
+  | FooterRichTextSlice
+  | FooterLinkBlockSlice;
 
 /**
  * Content for Footer Multi Column documents
@@ -1101,6 +1107,51 @@ export type FooterHeadingSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *FooterImage → Primary*
+ */
+export interface FooterImageSliceDefaultPrimary {
+  /**
+   * Image field in *FooterImage → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_image.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for FooterImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterImageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FooterImageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FooterImage*
+ */
+type FooterImageSliceVariation = FooterImageSliceDefault;
+
+/**
+ * FooterImage Shared Slice
+ *
+ * - **API ID**: `footer_image`
+ * - **Description**: FooterImage
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterImageSlice = prismic.SharedSlice<
+  "footer_image",
+  FooterImageSliceVariation
+>;
+
+/**
  * Primary content in *FooterLinkBlock → Primary*
  */
 export interface FooterLinkBlockSliceDefaultPrimary {
@@ -1223,6 +1274,51 @@ type FooterMultiColumnSliceVariation = FooterMultiColumnSliceDefault;
 export type FooterMultiColumnSlice = prismic.SharedSlice<
   "footer_multi_column",
   FooterMultiColumnSliceVariation
+>;
+
+/**
+ * Primary content in *FooterRichText → Primary*
+ */
+export interface FooterRichTextSliceDefaultPrimary {
+  /**
+   * Text field in *FooterRichText → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer_rich_text.primary.rich_text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  rich_text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for FooterRichText Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterRichTextSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FooterRichTextSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FooterRichText*
+ */
+type FooterRichTextSliceVariation = FooterRichTextSliceDefault;
+
+/**
+ * FooterRichText Shared Slice
+ *
+ * - **API ID**: `footer_rich_text`
+ * - **Description**: FooterRichText
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterRichTextSlice = prismic.SharedSlice<
+  "footer_rich_text",
+  FooterRichTextSliceVariation
 >;
 
 /**
@@ -2038,6 +2134,10 @@ declare module "@prismicio/client" {
       FooterHeadingSliceDefaultPrimary,
       FooterHeadingSliceVariation,
       FooterHeadingSliceDefault,
+      FooterImageSlice,
+      FooterImageSliceDefaultPrimary,
+      FooterImageSliceVariation,
+      FooterImageSliceDefault,
       FooterLinkBlockSlice,
       FooterLinkBlockSliceDefaultPrimary,
       FooterLinkBlockSliceDefaultItem,
@@ -2047,6 +2147,10 @@ declare module "@prismicio/client" {
       FooterMultiColumnSliceDefaultPrimary,
       FooterMultiColumnSliceVariation,
       FooterMultiColumnSliceDefault,
+      FooterRichTextSlice,
+      FooterRichTextSliceDefaultPrimary,
+      FooterRichTextSliceVariation,
+      FooterRichTextSliceDefault,
       FormSlice,
       FormSliceDefaultPrimary,
       FormSliceVariation,

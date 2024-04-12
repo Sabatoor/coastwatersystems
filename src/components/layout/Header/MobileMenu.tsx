@@ -10,16 +10,23 @@ import {
   SheetClose,
 } from '@/components/ui/sheet'
 import { Button, buttonVariants } from '@/components/ui/button'
-import { isFilled, KeyTextField } from '@prismicio/client'
-import { PrismicNextLink } from '@prismicio/next'
+import { ImageField, isFilled, KeyTextField } from '@prismicio/client'
+import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
+import Link from 'next/link'
 
 type MobileMenuProps = {
   className?: string
   site_title: KeyTextField
   navigation: Array<LayoutDocumentDataNavigationItem>
+  logo: ImageField
 }
 
-const MobileMenu = ({ navigation, className, site_title }: MobileMenuProps) => {
+const MobileMenu = ({
+  navigation,
+  className,
+  site_title,
+  logo,
+}: MobileMenuProps) => {
   return (
     <div className={cn('md:hidden text-primary-foreground', className)}>
       <Sheet>
@@ -30,7 +37,10 @@ const MobileMenu = ({ navigation, className, site_title }: MobileMenuProps) => {
         <SheetContent>
           <SheetHeader>
             {isFilled.keyText(site_title) && (
-              <SheetTitle className="font-bold text-primary">
+              <SheetTitle className="font-bold font-heading text-primary text-4xl flex flex-col items-center">
+                {isFilled.image(logo) && (
+                  <PrismicNextImage field={logo} className="inline w-12 h-12" />
+                )}
                 {site_title}
               </SheetTitle>
             )}
@@ -49,6 +59,13 @@ const MobileMenu = ({ navigation, className, site_title }: MobileMenuProps) => {
                 </li>
               )
             })}
+            <li>
+              <SheetClose asChild>
+                <Button asChild variant={'default'} className="flex">
+                  <Link href="/">Get In Touch</Link>
+                </Button>
+              </SheetClose>
+            </li>
           </ul>
         </SheetContent>
       </Sheet>

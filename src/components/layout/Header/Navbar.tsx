@@ -32,7 +32,7 @@ const Navbar = ({
   site_title,
 }: NavbarProps) => {
   return (
-    <header className={cn('bg-indigo-50 shadow-sm')}>
+    <header className={cn('bg-background shadow-sm')}>
       <Section
         width="xl"
         padded={false}
@@ -41,12 +41,7 @@ const Navbar = ({
         <div className="flex items-center justify-between">
           <Link href="/">
             {isFilled.image(logo) ? (
-              <PrismicNextImage
-                field={logo}
-                imgixParams={{ ar: '1:1', fit: 'crop' }}
-                height={60}
-                width={60}
-              />
+              <PrismicNextImage field={logo} height={60} />
             ) : (
               <Heading as="h1" size="xl" className="p-1.5">
                 {site_title}
@@ -57,7 +52,11 @@ const Navbar = ({
             {navigation.length > 0 && (
               <>
                 <DesktopMenu navigation={navigation} />
-                <MobileMenu site_title={site_title} navigation={navigation} />
+                <MobileMenu
+                  site_title={site_title}
+                  navigation={navigation}
+                  logo={logo}
+                />
               </>
             )}
 

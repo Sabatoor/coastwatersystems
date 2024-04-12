@@ -23,9 +23,9 @@ const FooterMultiColumn = ({ slice }: FooterMultiColumnProps): JSX.Element => {
   const primary = slice.primary as FooterMultiColumnSliceDefaultPrimary
   const multiColumn = primary.layout as unknown as FooterMultiColumnDocument
   const cols =
-    (multiColumn.data?.slices.length > 0 ? 1 : 0) +
-    (multiColumn.data?.slices1.length > 0 ? 1 : 0) +
-    (multiColumn.data?.slices2.length > 0 ? 1 : 0)
+    (multiColumn.data?.slices?.length > 0 ? 1 : 0) +
+    (multiColumn.data?.slices1?.length > 0 ? 1 : 0) +
+    (multiColumn.data?.slices2?.length > 0 ? 1 : 0)
   return (
     <Section
       data-slice-type={slice.slice_type}
@@ -55,7 +55,7 @@ const FooterMultiColumn = ({ slice }: FooterMultiColumnProps): JSX.Element => {
             'lg:grid-cols-3': cols === 3,
           })}
         >
-          {multiColumn.data.slices.length > 0 && (
+          {multiColumn.data.slices?.length > 0 && (
             <div>
               <SliceZone
                 slices={multiColumn.data.slices}
@@ -63,7 +63,7 @@ const FooterMultiColumn = ({ slice }: FooterMultiColumnProps): JSX.Element => {
               />
             </div>
           )}
-          {multiColumn.data.slices1.length > 0 && (
+          {multiColumn.data.slices1?.length > 0 && (
             <div>
               <SliceZone
                 slices={multiColumn.data.slices1}
@@ -71,7 +71,7 @@ const FooterMultiColumn = ({ slice }: FooterMultiColumnProps): JSX.Element => {
               />
             </div>
           )}
-          {multiColumn.data.slices2.length > 0 && (
+          {multiColumn.data.slices2?.length > 0 && (
             <div>
               <SliceZone
                 slices={multiColumn.data.slices2}
