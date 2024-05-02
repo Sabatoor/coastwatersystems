@@ -127,7 +127,7 @@ const ContentList = async ({
     return (
       <>
         {results.length > 0 && (
-          <ul>
+          <ul className="space-y-8">
             {results.map((gallery) => {
               return (
                 <li key={gallery.id} className="max-w-md mx-auto">
