@@ -18,7 +18,7 @@ const ContactInfo = ({ slice }: ContactInfoProps): JSX.Element => {
       data-slice-variation={slice.variation}
       width="xl"
     >
-      <div className="grid lg:grid-cols-2">
+      <div className="grid lg:grid-cols-2 my-4 lg:my-8">
         <div>
           <PrismicRichText field={slice.primary.text} />
         </div>
