@@ -68,7 +68,7 @@ const defaultComponents: JSXMapSerializer = {
     return (
       <p
         className={cn(
-          'prose mx-auto my-3 text-foreground lg:prose-lg xl:prose-xl lg:my-6',
+          'prose mx-auto my-3 text-foreground lg:prose-lg xl:prose-xl lg:my-6 prose-a:text-primary',
           {}
         )}
       >

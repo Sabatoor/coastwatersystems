@@ -1,0 +1,71 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "COAST WATER SYSTEMS",
+							"spans": []
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "#4-20030 Stewart Crescent\nMaple Ridge, BC,\nV2X 0T4,\nCanada",
+							"spans": []
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Office Hours:\nMonday – Friday:\n7:00 – 4:30",
+							"spans": [
+								{
+									"type": "strong",
+									"start": 0,
+									"end": 13
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Email: sales@coastwater.ca",
+							"spans": [
+								{
+									"type": "hyperlink",
+									"start": 7,
+									"end": 26,
+									"data": {
+										"__TYPE__": "ExternalLink",
+										"url": "mailto:sales@coastwater.ca",
+										"target": "_blank"
+									}
+								}
+							]
+						},
+						"direction": "ltr"
+					},
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Phone: (604) 460-3622\nFax: (604) 460-3623\nToll Free:  (844) 660-3622",
+							"spans": []
+						},
+						"direction": "ltr"
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

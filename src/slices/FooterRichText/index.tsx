@@ -25,7 +25,9 @@ const FooterRichText = ({ slice }: FooterRichTextProps): JSX.Element => {
         field={slice.primary.rich_text}
         components={{
           paragraph: ({ children }) => (
-            <p className="text-xl font-light flex justify-center">{children}</p>
+            <p className="text-xl font-light flex justify-center my-4">
+              {children}
+            </p>
           ),
         }}
       />

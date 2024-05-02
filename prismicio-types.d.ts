@@ -413,6 +413,8 @@ export type LayoutDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | DirectorySlice
+  | ContactInfoSlice
   | FormSlice
   | ContentIndexSlice
   | FeaturesSlice
@@ -774,6 +776,51 @@ export type CarouselSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *ContactInfo → Primary*
+ */
+export interface ContactInfoSliceDefaultPrimary {
+  /**
+   * Text field in *ContactInfo → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contact_info.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ContactInfo Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactInfoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ContactInfoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ContactInfo*
+ */
+type ContactInfoSliceVariation = ContactInfoSliceDefault;
+
+/**
+ * ContactInfo Shared Slice
+ *
+ * - **API ID**: `contact_info`
+ * - **Description**: ContactInfo
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ContactInfoSlice = prismic.SharedSlice<
+  "contact_info",
+  ContactInfoSliceVariation
+>;
+
+/**
  * Primary content in *ContentIndex → Primary*
  */
 export interface ContentIndexSliceDefaultPrimary {
@@ -847,6 +894,106 @@ type ContentIndexSliceVariation = ContentIndexSliceDefault;
 export type ContentIndexSlice = prismic.SharedSlice<
   "content_index",
   ContentIndexSliceVariation
+>;
+
+/**
+ * Primary content in *Directory → Primary*
+ */
+export interface DirectorySliceDefaultPrimary {
+  /**
+   * Heading field in *Directory → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directory.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+}
+
+/**
+ * Primary content in *Directory → Items*
+ */
+export interface DirectorySliceDefaultItem {
+  /**
+   * First Name field in *Directory → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directory.items[].first_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  first_name: prismic.KeyTextField;
+
+  /**
+   * Last Name field in *Directory → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directory.items[].last_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  last_name: prismic.KeyTextField;
+
+  /**
+   * Portrait field in *Directory → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directory.items[].portrait
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  portrait: prismic.ImageField<never>;
+
+  /**
+   * Role field in *Directory → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directory.items[].role
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  role: prismic.KeyTextField;
+
+  /**
+   * Contact Info field in *Directory → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directory.items[].contact_info
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  contact_info: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Directory Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DirectorySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<DirectorySliceDefaultPrimary>,
+  Simplify<DirectorySliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Directory*
+ */
+type DirectorySliceVariation = DirectorySliceDefault;
+
+/**
+ * Directory Shared Slice
+ *
+ * - **API ID**: `directory`
+ * - **Description**: Directory
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DirectorySlice = prismic.SharedSlice<
+  "directory",
+  DirectorySliceVariation
 >;
 
 /**
@@ -2285,10 +2432,19 @@ declare module "@prismicio/client" {
       CarouselSliceVariation,
       CarouselSliceDefault,
       CarouselSlicePortraitSingle,
+      ContactInfoSlice,
+      ContactInfoSliceDefaultPrimary,
+      ContactInfoSliceVariation,
+      ContactInfoSliceDefault,
       ContentIndexSlice,
       ContentIndexSliceDefaultPrimary,
       ContentIndexSliceVariation,
       ContentIndexSliceDefault,
+      DirectorySlice,
+      DirectorySliceDefaultPrimary,
+      DirectorySliceDefaultItem,
+      DirectorySliceVariation,
+      DirectorySliceDefault,
       FaqSlice,
       FaqSliceDefaultPrimary,
       FaqSliceDefaultItem,
