@@ -4,7 +4,7 @@ import { PrismicRichText } from '@/components/typography/PrismicRichText'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { Content, isFilled } from '@prismicio/client'
-import { PrismicNextImage } from '@prismicio/next'
+import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
 import { SliceComponentProps } from '@prismicio/react'
 
 /**
@@ -76,8 +76,11 @@ const Hero = ({ slice, index }: HeroProps): JSX.Element => {
               'bg-primary': slice.primary.button_style === 'outline',
               'text-primary-foreground': slice.primary.button_style === 'link',
             })}
+            asChild
           >
-            {slice.primary.button_label || 'Missing Button Label'}
+            <PrismicNextLink field={slice.primary.button_link}>
+              {slice.primary.button_label || 'Missing Button Label'}
+            </PrismicNextLink>
           </Button>
         )}
       </div>
