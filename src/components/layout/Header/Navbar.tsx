@@ -56,6 +56,8 @@ const Navbar = ({
                   site_title={site_title}
                   navigation={navigation}
                   logo={logo}
+                  cta_label={cta_label}
+                  cta_link={cta_link}
                 />
               </>
             )}
