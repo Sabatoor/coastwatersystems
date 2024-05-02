@@ -5,7 +5,7 @@
 		"primary": {
 			"content_type": {
 				"__TYPE__": "FieldContent",
-				"value": "service",
+				"value": "post",
 				"type": "Select"
 			},
 			"fallback_item_image": {

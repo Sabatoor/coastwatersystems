@@ -19,7 +19,7 @@
             "placeholder": "Select the content type to display",
             "options": [
               "post",
-              "service"
+              "gallery"
             ],
             "default_value": "post"
           }

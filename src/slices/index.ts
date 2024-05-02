@@ -13,6 +13,7 @@ export const components = {
   footer_multi_column: dynamic(() => import("./FooterMultiColumn")),
   footer_rich_text: dynamic(() => import("./FooterRichText")),
   form: dynamic(() => import("./Form")),
+  gallery: dynamic(() => import("./Gallery")),
   hero: dynamic(() => import("./Hero")),
   image_with_text: dynamic(() => import("./ImageWithText")),
   process: dynamic(() => import("./Process")),
