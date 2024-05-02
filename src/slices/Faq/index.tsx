@@ -45,7 +45,8 @@ const Faq = ({ slice }: FaqProps): JSX.Element => {
       </div>
       {slice.items.length > 0 && (
         <Accordion
-          type="multiple"
+          type="single"
+          collapsible
           className="my-6 lg:my-12 bg-secondary rounded-lg px-4"
         >
           {slice.items.map((item, index) => (
