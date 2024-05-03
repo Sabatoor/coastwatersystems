@@ -108,7 +108,10 @@ const ContentList = async ({
                             asText(item.data.title) || 'View the content'
                           }
                         >
-                          {ctaText}
+                          {ctaText}{' '}
+                          <span className="sr-only">
+                            about {asText(item.data.title)}
+                          </span>
                         </Link>
                       </Button>
                     </CardFooter>
