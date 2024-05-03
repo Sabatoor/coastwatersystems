@@ -15,7 +15,11 @@ type contextProps = {
 /**
  * Component for "ContentIndex" Slices.
  */
-const ContentIndex = ({ slice, context }: ContentIndexProps): JSX.Element => {
+const ContentIndex = ({
+  slice,
+  context,
+  index,
+}: ContentIndexProps): JSX.Element => {
   const { page } = context as contextProps
   return (
     <Section
@@ -35,6 +39,7 @@ const ContentIndex = ({ slice, context }: ContentIndexProps): JSX.Element => {
         }
       >
         <ContentList
+          index={index}
           contentType={slice.primary.content_type}
           display={slice.primary.number_to_display || undefined}
           page={page || undefined}

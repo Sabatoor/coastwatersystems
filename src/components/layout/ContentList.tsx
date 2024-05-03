@@ -20,6 +20,7 @@ type ContentListProps = {
   display: number | undefined
   ctaText?: string
   fallbackItemImage: ImageField
+  index: number
 }
 
 const ContentList = async ({
@@ -28,6 +29,7 @@ const ContentList = async ({
   display = 5,
   fallbackItemImage,
   page = 1,
+  index,
 }: ContentListProps): Promise<JSX.Element> => {
   const client = createClient()
   let prismicData
@@ -75,6 +77,7 @@ const ContentList = async ({
                               : fallbackItemImage
                           }
                           className="rounded-lg"
+                          priority={index < 3}
                         />
                       </Link>
                     </div>
