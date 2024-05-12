@@ -38,7 +38,7 @@ const Gallery = ({ slice }: GalleryProps): JSX.Element => {
                     <PrismicNextImage
                       field={item.image}
                       className="lg:w-[768px]"
-                      imgixParams={{ ar: '3:2', fit: 'crop' }}
+                      // imgixParams={{ ar: '3:2', fit: 'crop' }}
                     />
                   </DialogContent>
                 </Dialog>
