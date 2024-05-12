@@ -46,8 +46,8 @@ const ContentList = async ({
   } else {
     prismicData = await client.getByType('gallery', {
       orderings: {
-        field: 'document.first_publication_date',
-        direction: 'desc',
+        field: 'my.gallery.title',
+        direction: 'asc',
       },
       page: page,
       pageSize: display,
