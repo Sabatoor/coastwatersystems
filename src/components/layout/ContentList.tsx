@@ -68,7 +68,7 @@ const ContentList = async ({
                   className="grid lg:grid-cols-5 border-t border-t-secondary py-10 group"
                 >
                   {'featured_image' in item.data && (
-                    <div className="flex justify-center items-center lg:-mr-4 lg:col-span-2 group-hover:lg:translate-x-2 transition duration-300 ease-in-out">
+                    <div className="flex justify-center items-center lg:-mr-4 lg:col-span-2 group-hover:lg:translate-x-2 transition duration-300 ease-in-out relative min-h-48 -mb-8 lg:-mb-0">
                       <Link href={item.url || '#'}>
                         <PrismicNextImage
                           field={
@@ -76,8 +76,10 @@ const ContentList = async ({
                               ? item.data.featured_image
                               : fallbackItemImage
                           }
-                          className="rounded-lg"
+                          fill
+                          className="rounded-lg object-cover"
                           priority={index < 3}
+                          // imgixParams={{ ar: '4:3', fit: 'crop' }}
                         />
                       </Link>
                     </div>
