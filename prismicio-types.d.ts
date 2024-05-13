@@ -936,16 +936,6 @@ export interface DirectorySliceDefaultItem {
   last_name: prismic.KeyTextField;
 
   /**
-   * Portrait field in *Directory → Items*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: directory.items[].portrait
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  portrait: prismic.ImageField<never>;
-
-  /**
    * Role field in *Directory → Items*
    *
    * - **Field Type**: Text

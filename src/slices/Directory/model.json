@@ -37,17 +37,6 @@
             "placeholder": ""
           }
         },
-        "portrait": {
-          "type": "Image",
-          "config": {
-            "label": "Portrait",
-            "constraint": {
-              "width": 96,
-              "height": 96
-            },
-            "thumbnails": []
-          }
-        },
         "role": {
           "type": "Text",
           "config": {

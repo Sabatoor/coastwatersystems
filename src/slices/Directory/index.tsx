@@ -39,20 +39,21 @@ const Directory = ({ slice }: DirectoryProps): JSX.Element => {
               <li key={slice.id + index} className="w-[300px]">
                 <Card className="p-4 min-h-[270px] flex flex-col justify-center hover:bg-secondary transition-colors duration-150 ease-in-out">
                   <div className="grid place-items-center">
-                    {slice.variation === 'withAvatar' && (
-                      <Avatar className="w-24 h-24 shadow-lg shadow-slate-600">
-                        {isFilled.image(employee.portrait) && (
-                          <AvatarImage
-                            src={employee.portrait.url}
-                            alt={
-                              employee.portrait.alt ||
-                              `${employee.first_name} ${employee.last_name}`
-                            }
-                          />
-                        )}
-                        <AvatarFallback className="font-bold text-primary text-xl">{`${employee.first_name?.charAt(0)} ${employee.last_name?.charAt(0)}`}</AvatarFallback>
-                      </Avatar>
-                    )}
+                    {slice.variation === 'withAvatar' &&
+                      'portrait' in employee && (
+                        <Avatar className="w-24 h-24 shadow-lg shadow-slate-600">
+                          {isFilled.image(employee.portrait) && (
+                            <AvatarImage
+                              src={employee.portrait.url}
+                              alt={
+                                employee.portrait.alt ||
+                                `${employee.first_name} ${employee.last_name}`
+                              }
+                            />
+                          )}
+                          <AvatarFallback className="font-bold text-primary text-xl">{`${employee.first_name?.charAt(0)} ${employee.last_name?.charAt(0)}`}</AvatarFallback>
+                        </Avatar>
+                      )}
 
                     <CardHeader className="text-center">
                       <CardTitle>
