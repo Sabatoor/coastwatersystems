@@ -44,6 +44,7 @@ const Gallery = ({ slice }: GalleryProps): JSX.Element => {
                       <PrismicNextImage
                         field={item.image}
                         width={250}
+                        height={166.98}
                         className="rounded lg:opacity-80 hover:opacity-100 transition-opacity duration-500 ease-in-out shadow-sm shadow-slate-700"
                         imgixParams={{ ar: '3:2', fit: 'crop' }}
                         priority={index < 4}

@@ -980,9 +980,92 @@ export type DirectorySliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *Directory → Primary*
+ */
+export interface DirectorySliceWithAvatarPrimary {
+  /**
+   * Heading field in *Directory → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directory.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+}
+
+/**
+ * Primary content in *Directory → Items*
+ */
+export interface DirectorySliceWithAvatarItem {
+  /**
+   * First Name field in *Directory → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directory.items[].first_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  first_name: prismic.KeyTextField;
+
+  /**
+   * Last Name field in *Directory → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directory.items[].last_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  last_name: prismic.KeyTextField;
+
+  /**
+   * Portrait field in *Directory → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directory.items[].portrait
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  portrait: prismic.ImageField<never>;
+
+  /**
+   * Role field in *Directory → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directory.items[].role
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  role: prismic.KeyTextField;
+
+  /**
+   * Contact Info field in *Directory → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: directory.items[].contact_info
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  contact_info: prismic.RichTextField;
+}
+
+/**
+ * WithAvatar variation for Directory Slice
+ *
+ * - **API ID**: `withAvatar`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type DirectorySliceWithAvatar = prismic.SharedSliceVariation<
+  "withAvatar",
+  Simplify<DirectorySliceWithAvatarPrimary>,
+  Simplify<DirectorySliceWithAvatarItem>
+>;
+
+/**
  * Slice variation for *Directory*
  */
-type DirectorySliceVariation = DirectorySliceDefault;
+type DirectorySliceVariation = DirectorySliceDefault | DirectorySliceWithAvatar;
 
 /**
  * Directory Shared Slice
@@ -2443,8 +2526,11 @@ declare module "@prismicio/client" {
       DirectorySlice,
       DirectorySliceDefaultPrimary,
       DirectorySliceDefaultItem,
+      DirectorySliceWithAvatarPrimary,
+      DirectorySliceWithAvatarItem,
       DirectorySliceVariation,
       DirectorySliceDefault,
+      DirectorySliceWithAvatar,
       FaqSlice,
       FaqSliceDefaultPrimary,
       FaqSliceDefaultItem,
