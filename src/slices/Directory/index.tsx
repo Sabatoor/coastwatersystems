@@ -36,8 +36,21 @@ const Directory = ({ slice }: DirectoryProps): JSX.Element => {
         <ul className="flex flex-wrap justify-center gap-4 lg:gap-8 py-4 lg:py-8">
           {slice.items.map((employee, index) => {
             return (
-              <li key={slice.id + index} className="w-[300px]">
-                <Card className="p-4 min-h-[270px] flex flex-col justify-center hover:bg-secondary transition-colors duration-150 ease-in-out">
+              <li
+                key={slice.id + index}
+                className={cn('w-[300px]', {
+                  'lg:w-fit': slice.variation === 'default',
+                })}
+              >
+                <Card
+                  className={cn(
+                    'p-4 min-h-[270px] flex flex-col justify-center hover:bg-secondary transition-colors duration-150 ease-in-out',
+                    {
+                      'border-none shadow-none min-h-0':
+                        slice.variation === 'default',
+                    }
+                  )}
+                >
                   <div className="grid place-items-center">
                     {slice.variation === 'withAvatar' &&
                       'portrait' in employee && (
