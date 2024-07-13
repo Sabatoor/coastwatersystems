@@ -8,6 +8,7 @@ import Footer from '@/components/layout/Footer/Footer'
 import { Suspense } from 'react'
 import Analytics from '@/components/Analytics'
 import Consent from '@/components/layout/Consent'
+import { headers } from 'next/headers'
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient()
@@ -28,20 +29,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const nonce = headers().get('x-nonce') || undefined
   return (
     <html lang="en">
       <body
         className={cn(
-          'flex min-h-screen flex-col justify-between bg-background font-sans antialiased'
+          'flex min-h-screen flex-col justify-between bg-background antialiased'
         )}
       >
         <Suspense>
-          <Analytics />
+          <Analytics nonce={nonce} />
         </Suspense>
         <Header />
         {children}
         <Footer />
-        <Consent />
+        <Consent nonce={nonce} />
         <PrismicPreview repositoryName={repositoryName} />
       </body>
     </html>

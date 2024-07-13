@@ -7,7 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Script from 'next/script'
 import { Button } from '@/components/ui/button'
 
-export default function Consent() {
+export default function Consent({ nonce }: { nonce: string | undefined }) {
   const [consent, setConsent] = React.useState<boolean>(false)
   const [hideBanner, setHideBanner] = React.useState<boolean>(true)
 
@@ -53,6 +53,7 @@ export default function Consent() {
               localStorage.setItem('consentMode', JSON.stringify({ad_storage: 'granted', analytics_storage: 'granted'}));
             `,
           }}
+          nonce={nonce}
         />
       )}
       <AnimatePresence>

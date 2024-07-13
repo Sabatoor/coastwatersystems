@@ -7,6 +7,7 @@ import { components } from '@/slices'
 import { asText } from '@prismicio/client'
 import Heading from '@/components/typography/Heading'
 import { Graph } from 'schema-dts'
+import { headers } from 'next/headers'
 
 type Params = { uid: string }
 type SearchParams = {
@@ -57,12 +58,13 @@ export default async function Page({
       },
     ],
   }
-
+  const nonce = headers().get('x-nonce') || undefined
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        nonce={nonce}
       />
       <Heading
         as="h1"
