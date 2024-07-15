@@ -70,6 +70,21 @@
           "select": null
         }
       },
+      "slavery_label": {
+        "type": "Text",
+        "config": {
+          "label": "Slavery Label",
+          "placeholder": ""
+        }
+      },
+      "slavery_link": {
+        "type": "Link",
+        "config": {
+          "label": "Slavery Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
       "copyright": {
         "type": "Text",
         "config": {
