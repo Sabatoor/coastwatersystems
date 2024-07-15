@@ -13,6 +13,8 @@ const Footer = async (): Promise<JSX.Element> => {
         cta_link
         privacy_label
         privacy_link
+        slavery_label
+        slavery_link
         slices1 {
           ...on footer_heading {
             variation {

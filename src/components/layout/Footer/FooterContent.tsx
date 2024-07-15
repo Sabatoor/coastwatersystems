@@ -20,10 +20,17 @@ const FooterContent = ({ data, settings }: FooterContentProps): JSX.Element => {
     <Section as="footer" className="bg-primary text-primary-foreground">
       <SliceZone components={components} slices={data.slices1} />
 
-      <div className="my-4 text-center lg:my-8">
-        <PrismicNextLink field={data.privacy_link}>
-          {data.privacy_label}
-        </PrismicNextLink>
+      <div className="flex flex-col lg:flex-row lg:gap-x-6 justify-center">
+        <div className="my-4 text-center lg:my-8">
+          <PrismicNextLink field={data.privacy_link}>
+            {data.privacy_label}
+          </PrismicNextLink>
+        </div>
+        <div className="my-4 text-center lg:my-8">
+          <PrismicNextLink field={data.slavery_link}>
+            {data.slavery_label}
+          </PrismicNextLink>
+        </div>
       </div>
       <div className="text-center text-xs lg:text-sm">
         {data.copyright} <CopyrightIcon className="inline w-3 pb-1" />{' '}
