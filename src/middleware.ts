@@ -4,9 +4,9 @@ export function middleware(request: NextRequest) {
   const nonce = Buffer.from(crypto.randomUUID()).toString('base64')
   const cspHeader = `
     default-src 'self';
-    script-src 'self' 'nonce-${nonce}' https://coastwatersystems.prismic.io/ https://static.cdn.prismic.io/ 'unsafe-inline' 'strict-dynamic';
+    script-src 'self' 'nonce-${nonce}' https://coastwatersystems.prismic.io/ https://static.cdn.prismic.io/ https://connect.facebook.net 'unsafe-inline' 'strict-dynamic';
     style-src 'self' 'unsafe-inline';
-    img-src 'self' blob: data: images.prismic.io images.unsplash.com prismic-io.s3.amazonaws.com;
+    img-src 'self' blob: data: *.facebook.com images.prismic.io images.unsplash.com prismic-io.s3.amazonaws.com;
     font-src 'self' 'nonce-${nonce}';
     object-src 'none';
     base-uri 'self';
